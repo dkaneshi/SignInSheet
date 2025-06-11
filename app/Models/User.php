@@ -3,11 +3,25 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 
+/**
+ * @property-read int $id
+ * @property-read string $name
+ * @property-read string $email
+ * @property-read CarbonImmutable $email_verified_at
+ * @property-read string $password
+ * @property-read int $team_id
+ * @property-read Team $team
+ * @property-read string|null $remember_token
+ * @property-read CarbonImmutable $created_at
+ * @property-read CarbonImmutable $updated_at
+ */
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -57,5 +71,10 @@ class User extends Authenticatable
             ->take(2)
             ->map(fn ($word) => Str::substr($word, 0, 1))
             ->implode('');
+    }
+
+    public function team(): BelongsTo
+    {
+        return $this->belongsTo(Team::class);
     }
 }
