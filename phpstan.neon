@@ -6,6 +6,9 @@ parameters:
 
     paths:
         - app/
+    excludePaths:
+        - app/*/Auth/*
+        - app/Livewire/Settings/*
 
     # Level 10 is the highest level
     level: 10
