@@ -18,7 +18,7 @@ class LeaveTypeFactory extends Factory
     {
         return [
             'name' => fake()->unique()->name(),
-            'abbreviation' => fake()->unique()->text(3),
+            'abbreviation' => fake()->unique()->text(6),
         ];
     }
 }
