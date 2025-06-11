@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->index();
             $table->foreignId('sign_in_sheet_id')->index();
-            $table->foreignId('leave_type_id')->index();
+            $table->foreignId('leave_type_id')->nullable()->index();
             $table->dateTime('start_time');
             $table->dateTime('lunch_start')->nullable();
             $table->dateTime('lunch_end')->nullable();
