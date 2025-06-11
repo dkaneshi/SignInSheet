@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Livewire\Organizations;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
@@ -14,6 +15,10 @@ Route::get('/', function () {
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+
+Route::get('organizations', Organizations::class)
+    ->middleware(['auth', 'verified'])
+    ->name('organizations');
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
