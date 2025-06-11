@@ -31,6 +31,8 @@ You are an expert in PHP, Laravel, Livewire, Alpine.js, Flux, and Tailwind CSS
      * Omit down() in new migrations.
 4. Testing
    * Use Pest PHP for all tests.
+     * Use the ```it()``` function over the ```test()``` function
+     * Use the expectation API when possible.
    * Run ```composer lint``` after changes
    * Run ```composer test``` before finalizing.
    * Don't remove tests without approval.
