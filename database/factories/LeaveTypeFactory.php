@@ -17,7 +17,8 @@ class LeaveTypeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => fake()->unique()->name(),
+            'abbreviation' => fake()->unique()->text(3),
         ];
     }
 }

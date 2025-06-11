@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Organization;
+use App\Models\Team;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,10 @@ class SignInSheetFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'organization_id' => Organization::factory(),
+            'team_id' => Team::factory(),
+            'start_date' => now(),
+            'end_date' => now()->addDays(7),
         ];
     }
 }
