@@ -31,16 +31,25 @@ final class SignInEntry extends Model
     /** @use HasFactory<\Database\Factories\SignInEntryFactory> */
     use HasFactory;
 
+    /**
+     * @return BelongsTo<User, $this>
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+    /**
+     * @return BelongsTo<SignInSheet, $this>
+     */
     public function signInSheet(): BelongsTo
     {
         return $this->belongsTo(SignInSheet::class);
     }
 
+    /**
+     * @return BelongsTo<LeaveType, $this>
+     */
     public function leaveType(): BelongsTo
     {
         return $this->belongsTo(LeaveType::class);

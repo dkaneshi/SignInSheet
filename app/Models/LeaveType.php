@@ -23,6 +23,9 @@ final class LeaveType extends Model
     /** @use HasFactory<LeaveTypeFactory> */
     use HasFactory;
 
+    /**
+     * @return HasMany<SignInEntry, $this>
+     */
     public function signInEntries(): HasMany
     {
         return $this->hasMany(SignInEntry::class);

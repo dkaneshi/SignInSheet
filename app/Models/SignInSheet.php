@@ -27,16 +27,25 @@ final class SignInSheet extends Model
     /** @use HasFactory<\Database\Factories\SignInSheetFactory> */
     use HasFactory;
 
+    /**
+     * @return BelongsTo<Organization, $this>
+     */
     public function organization(): BelongsTo
     {
         return $this->belongsTo(Organization::class);
     }
 
+    /**
+     * @return BelongsTo<Team, $this>
+     */
     public function team(): BelongsTo
     {
         return $this->belongsTo(Team::class);
     }
 
+    /**
+     * @return HasMany<SignInEntry, $this>
+     */
     public function signInEntries(): HasMany
     {
         return $this->hasMany(SignInEntry::class);

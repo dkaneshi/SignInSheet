@@ -22,11 +22,17 @@ final class Organization extends Model
     /** @use HasFactory<\Database\Factories\OrganizationFactory> */
     use HasFactory;
 
+    /**
+     * @return HasMany<Team, $this>
+     */
     public function teams(): HasMany
     {
         return $this->hasMany(Team::class);
     }
 
+    /**
+     * @return HasMany<SignInSheet, $this>
+     */
     public function signInSheets(): HasMany
     {
         return $this->hasMany(SignInSheet::class);
