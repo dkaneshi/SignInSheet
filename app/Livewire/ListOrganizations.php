@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire;
 
 use App\Models\Organization;
@@ -9,7 +11,7 @@ use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class ListOrganizations extends Component
+final class ListOrganizations extends Component
 {
     use WithPagination;
 
