@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * @property-read integer $id
+ * @property-read int $id
  * @property-read string $name
  * @property-read string $abbreviation
  * @property-read SignInEntry $signInEntries

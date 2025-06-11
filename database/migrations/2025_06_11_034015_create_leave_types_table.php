@@ -19,15 +19,14 @@ return new class extends Migration
             $table->timestamps();
         });
 
-
         LeaveType::query()->create([
             'name' => 'Vacation',
-            'abbreviation' => 'VAC'
+            'abbreviation' => 'VAC',
         ]);
 
         LeaveType::query()->create([
             'name' => 'Sick',
-            'abbreviation' => 'SCK'
+            'abbreviation' => 'SCK',
         ]);
     }
 };

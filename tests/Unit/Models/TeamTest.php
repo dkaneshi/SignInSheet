@@ -3,7 +3,6 @@
 use App\Models\Organization;
 use App\Models\Team;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 test('to array', function () {

@@ -29,5 +29,4 @@ class Organization extends Model
     {
         return $this->hasMany(SignInSheet::class);
     }
-
 }

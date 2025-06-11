@@ -9,14 +9,14 @@ test('to array', function () {
 
     expect(array_keys($user->toArray()))
         ->toEqual([
-                'id',
-                'name',
-                'email',
-                'email_verified_at',
-                'team_id',
-                'created_at',
-                'updated_at',
-            ]);
+            'id',
+            'name',
+            'email',
+            'email_verified_at',
+            'team_id',
+            'created_at',
+            'updated_at',
+        ]);
 });
 
 it('has a factory that creates a valid user', function () {
@@ -66,14 +66,14 @@ it('has a hashed password', function () {
 });
 
 it('has fillable attributes', function () {
-    $user = new User();
+    $user = new User;
 
     expect($user->getFillable())
         ->toBe(['name', 'email', 'password']);
 });
 
 it('has hidden attributes', function () {
-    $user = new User();
+    $user = new User;
 
     expect($user->getHidden())
         ->toBe(['password', 'remember_token']);
