@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use App\Models\SignInSheet;
@@ -9,7 +11,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SignInEntry>
  */
-class SignInEntryFactory extends Factory
+final class SignInEntryFactory extends Factory
 {
     /**
      * Define the model's default state.

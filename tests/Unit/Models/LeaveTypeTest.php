@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\LeaveType;
 use App\Models\SignInEntry;
 use Illuminate\Database\Eloquent\Collection;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -53,7 +55,7 @@ test('email verified at is cast to datetime', function () {
     $user = User::factory()->create();
 
     expect($user->email_verified_at)
-        ->toBeInstanceOf(\Carbon\CarbonImmutable::class);
+        ->toBeInstanceOf(Carbon\CarbonImmutable::class);
 });
 
 it('has a hashed password', function () {

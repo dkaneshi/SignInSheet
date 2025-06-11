@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\LeaveType;
 use App\Models\SignInEntry;
 use App\Models\SignInSheet;
@@ -39,10 +41,10 @@ it('has a factory that creates a valid sign in entry', function () {
         ->user_id->toBeInt()
         ->sign_in_sheet_id->toBeInt()
         ->leave_type_id->toBeInt()
-        ->start_time->toBeInstanceOf(\Carbon\CarbonImmutable::class)
-        ->lunch_start->toBeInstanceOf(\Carbon\CarbonImmutable::class)
-        ->lunch_end->toBeInstanceOf(\Carbon\CarbonImmutable::class)
-        ->end_time->toBeInstanceOf(\Carbon\CarbonImmutable::class)
+        ->start_time->toBeInstanceOf(Carbon\CarbonImmutable::class)
+        ->lunch_start->toBeInstanceOf(Carbon\CarbonImmutable::class)
+        ->lunch_end->toBeInstanceOf(Carbon\CarbonImmutable::class)
+        ->end_time->toBeInstanceOf(Carbon\CarbonImmutable::class)
         ->overtime_hours->toBeInt()
         ->notes->toBeString();
 });

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\Organization;
 use App\Models\SignInEntry;
 use App\Models\SignInSheet;
@@ -30,8 +32,8 @@ it('has a factory that creates a valid sign in sheet', function () {
         ->toBeInstanceOf(SignInSheet::class)
         ->organization_id->toBeInt()
         ->team_id->toBeInt()
-        ->start_date->toBeInstanceOf(\Carbon\CarbonImmutable::class)
-        ->end_date->toBeInstanceOf(\Carbon\CarbonImmutable::class);
+        ->start_date->toBeInstanceOf(Carbon\CarbonImmutable::class)
+        ->end_date->toBeInstanceOf(Carbon\CarbonImmutable::class);
 });
 
 it('belongs to an organization', function () {
