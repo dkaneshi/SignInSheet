@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Livewire;
 
 use App\Models\Organization;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Attributes\Computed;
 use Livewire\Attributes\On;
@@ -15,6 +17,9 @@ final class ListOrganizations extends Component
 {
     use WithPagination;
 
+    /**
+     * @return LengthAwarePaginator<int, Organization>
+     */
     #[Computed]
     #[On('organization-added')]
     public function organizations(): LengthAwarePaginator
@@ -22,7 +27,7 @@ final class ListOrganizations extends Component
         return Organization::query()->orderBy('name')->paginate(10);
     }
 
-    public function render()
+    public function render(): View|Factory|\Illuminate\View\View
     {
         return view('livewire.list-organizations');
     }
