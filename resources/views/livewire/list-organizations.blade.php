@@ -13,6 +13,12 @@
                     @foreach ($this->organizations as $organization)
                         <flux:table.row :key="$organization->id">
                             <flux:table.cell>{{ $organization->name }}</flux:table-cell>
+                            <flux:table.cell>
+                                <div wire:key="edit-org-{{$organization->id}}">
+                                    <livewire:edit-organization :organization="$organization"
+                                                                :wire:key="'edit-org-'.$organization->id"/>
+                                </div>
+                            </flux:table-cell>
                         </flux:table.row>
                     @endforeach
                 </flux:table.rows>

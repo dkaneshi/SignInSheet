@@ -22,6 +22,7 @@ final class ListOrganizations extends Component
      */
     #[Computed]
     #[On('organization-added')]
+    #[On('organization-updated')]
     public function organizations(): LengthAwarePaginator
     {
         return Organization::query()->orderBy('name')->paginate(10);
