@@ -1,20 +1,36 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Livewire;
 
 use App\Models\Organization;
 use Flux\Flux;
 use Livewire\Attributes\Reactive;
-use Livewire\Attributes\Validate;
 use Livewire\Component;
 
-class EditOrganization extends Component
+final class EditOrganization extends Component
 {
     #[Reactive]
     public Organization $organization;
 
-    #[Validate('required|string|min:3|max:255|unique:organizations,name')]
     public string $name = '';
+
+    /**
+     * @return array<string, array<int, string>>
+     */
+    public function rules(): array
+    {
+        return [
+            'name' => [
+                'required',
+                'string',
+                'min:3',
+                'max:255',
+                'unique:organizations,name,'.$this->organization->id,
+            ],
+        ];
+    }
 
     public function mount(Organization $organization): void
     {
@@ -25,17 +41,19 @@ class EditOrganization extends Component
     {
         $organization = Organization::query()->findOrFail($this->organization->id);
 
+        /** @var array<string, string> $validated */
         $validated = $this->validate();
 
         $organization->update($validated);
 
         $this->dispatch('organization-updated');
 
-//        Flux::modals()->close();
+        // Close the modal
+        /** @phpstan-ignore-next-line */
         $this->modal('edit-organization-'.$organization->id)->close();
     }
 
-    public function render()
+    public function render(): \Illuminate\View\View
     {
         return view('livewire.edit-organization');
     }
