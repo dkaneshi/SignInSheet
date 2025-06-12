@@ -14,7 +14,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <flux:button type="submit" :loading="true">Add User</flux:button>
+                    <flux:button type="submit" :loading="true">Add</flux:button>
                     <flux:button type="button" wire:click="resetForm">Reset</flux:button>
                 </div>
             </form>
