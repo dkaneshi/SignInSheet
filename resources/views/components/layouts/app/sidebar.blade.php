@@ -118,6 +118,9 @@
 
         {{ $slot }}
 
+        @persist('toast')
+            <flux:taost />
+        @endpersist
         @fluxScripts
     </body>
 </html>

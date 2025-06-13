@@ -51,6 +51,8 @@ final class EditOrganization extends Component
         // Close the modal
         /** @phpstan-ignore-next-line */
         $this->modal('edit-organization-'.$organization->id)->close();
+
+        Flux::toast('The organization has been updated.', variant: 'success');
     }
 
     public function render(): \Illuminate\View\View
