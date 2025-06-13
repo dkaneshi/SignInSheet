@@ -38,7 +38,7 @@ final class EditOrganization extends Component
         $this->name = $organization->name;
     }
 
-    public function editOrganization(UpdateOrganizationAction $action): void
+    public function editOrganization(Organization $organization, UpdateOrganizationAction $action): void
     {
         $organization = Organization::query()->findOrFail($this->organization->id);
 
@@ -51,7 +51,7 @@ final class EditOrganization extends Component
 
         // Close the modal
         /** @phpstan-ignore-next-line */
-        $this->modal('edit-organization-'.$organization->id)->close();
+        Flux::modal('edit-organization-'.$organization->id)->close();
 
         Flux::toast('The organization has been updated.', variant: 'success');
     }
