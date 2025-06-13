@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Livewire;
 
+use App\Actions\Organization\UpdateOrganizationAction;
 use App\Models\Organization;
 use Flux\Flux;
 use Livewire\Attributes\Reactive;
@@ -37,14 +38,14 @@ final class EditOrganization extends Component
         $this->name = $organization->name;
     }
 
-    public function editOrganization(): void
+    public function editOrganization(UpdateOrganizationAction $action): void
     {
         $organization = Organization::query()->findOrFail($this->organization->id);
 
         /** @var array<string, string> $validated */
         $validated = $this->validate();
 
-        $organization->update($validated);
+        $action->handle($organization, $validated);
 
         $this->dispatch('organization-updated');
 
