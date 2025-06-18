@@ -21,7 +21,7 @@ final class AddOrganization extends Component
         $validated = $this->validate();
         $action->handle($validated);
 
-        self::resetForm();
+        $this->resetForm();
 
         $this->dispatch('organization-added');
 
@@ -31,6 +31,10 @@ final class AddOrganization extends Component
     public function resetForm(): void
     {
         $this->reset('name');
+
+        $this->resetErrorBag();
+
+        $this->resetValidation();
     }
 
     public function render(): View
