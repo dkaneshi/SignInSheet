@@ -9,9 +9,7 @@ use App\Models\Organization;
 final readonly class UpdateOrganizationAction
 {
     /**
-     * @param  Organization  $organization
      * @param  array<string, mixed>  $data
-     * @return bool
      */
     public function handle(Organization $organization, array $data): bool
     {
@@ -19,5 +17,4 @@ final readonly class UpdateOrganizationAction
 
         return $organization->update($data);
     }
-
 }

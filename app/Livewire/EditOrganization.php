@@ -8,6 +8,7 @@ use App\Actions\Organization\UpdateOrganizationAction;
 use App\Models\Organization;
 use Flux\Flux;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Unique;
 use Livewire\Attributes\Reactive;
 use Livewire\Component;
 
@@ -19,7 +20,7 @@ final class EditOrganization extends Component
     public string $name = '';
 
     /**
-     * @return array<string, array<int, string>>
+     * @return array<string, array<int, Unique|string>>
      */
     public function rules(): array
     {
@@ -51,7 +52,6 @@ final class EditOrganization extends Component
         $this->dispatch('organization-updated');
 
         // Close the modal
-        /** @phpstan-ignore-next-line */
         Flux::modal('edit-organization-'.$organization->id)->close();
 
         Flux::toast('The organization has been updated.', variant: 'success');
