@@ -7,6 +7,7 @@ namespace App\Livewire;
 use App\Actions\Organization\UpdateOrganizationAction;
 use App\Models\Organization;
 use Flux\Flux;
+use Illuminate\Validation\Rule;
 use Livewire\Attributes\Reactive;
 use Livewire\Component;
 
@@ -28,7 +29,7 @@ final class EditOrganization extends Component
                 'string',
                 'min:3',
                 'max:255',
-                'unique:organizations,name,'.$this->organization->id,
+                Rule::unique(Organization::class)->ignore($this->organization->id),
             ],
         ];
     }
