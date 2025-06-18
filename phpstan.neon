@@ -13,4 +13,4 @@ parameters:
         - app/Livewire/Actions/Logout.php
 
     # Level 10 is the highest level
-    level: 10
+    level: 5
